@@ -27,16 +27,22 @@ public class StudentObjectCopyTest {
         try {
             session.beginTransaction();
 
-            Student student = new Student("James", "Dolittle", "james@dolittle.com");
-            System.out.println(student.equals(new Student(student)));
+            Student james = new Student(
+                    "James", "Dolittle", "james@dolittle.com");
+
+            // Prints true with equals() and hashCode().
+            System.out.println(james.equals(new Student(james)));
 
             // Creates two students with different ids
-            session.save(student);
-            session.save(new Student(student));
+            session.save(james);
+            session.save(new Student(james));
+
+            Student bill = new Student(
+                    "Bill", "Doe", "bill@doe.com");
 
             // Creates one student
-            //session.save(student);
-            //session.save(student);
+            session.save(bill);
+            session.save(bill);
 
             System.out.println("Saved student: ");
             session.getTransaction().commit();
