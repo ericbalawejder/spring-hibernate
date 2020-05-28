@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'com.tracker.customer'
+version '1.0.0-SNAPSHOT'
+
+project.ext {
+    junitVersion = '5.6.2'
+    hibernateVersion = '5.4.15.Final'
+    mysqlVersion = '8.0.20'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junitVersion
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junitVersion
+
+    compile group: 'org.hibernate', name: 'hibernate-core', version: hibernateVersion
+    compile group: 'mysql', name: 'mysql-connector-java', version: mysqlVersion
+    //compile group: 'log4j', name: 'log4j', version: '1.2.17'
+
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+
+}
+
+test {
+    useJUnitPlatform()
+    testLogging.showStandardStreams = true
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
