@@ -8,7 +8,7 @@ version '1.0.0-SNAPSHOT'
 
 project.ext {
     junitVersion = '5.6.2'
-    hibernateVersion = '5.4.15.Final'
+    hibernateVersion = '5.4.16.Final'
     mysqlVersion = '8.0.20'
 }
 
@@ -20,7 +20,30 @@ dependencies {
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junitVersion
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junitVersion
 
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.2.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-tx', version: '5.2.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '5.2.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version: '5.2.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-aop', version: '5.2.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version: '5.2.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version: '5.2.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-expression', version: '5.2.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-jcl', version: '5.2.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-orm', version: '5.2.6.RELEASE'
+
+
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+    compile group: 'javax.activation', name: 'javax.activation-api', version: '1.2.0'
+    compile group: 'org.glassfish.jaxb', name: 'jaxb-core', version: '3.0.0-M3'
+    compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '3.0.0-M3'
+
     compile group: 'org.hibernate', name: 'hibernate-core', version: hibernateVersion
+    //compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+    //compile group: 'antlr', name: 'antlr', version: '2.7.7'
+    compile group: 'com.mchange', name: 'c3p0', version: '0.9.5.5'
+    compile group: 'com.mchange', name: 'mchange-commons-java', version: '0.2.20'
+
+
     compile group: 'mysql', name: 'mysql-connector-java', version: mysqlVersion
     //compile group: 'log4j', name: 'log4j', version: '1.2.17'
 
