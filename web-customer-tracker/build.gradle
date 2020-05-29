@@ -8,6 +8,7 @@ version '1.0.0-SNAPSHOT'
 
 project.ext {
     junitVersion = '5.6.2'
+    springVersion = '5.2.6.RELEASE'
     hibernateVersion = '5.4.16.Final'
     mysqlVersion = '8.0.20'
 }
@@ -20,17 +21,16 @@ dependencies {
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: junitVersion
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: junitVersion
 
-    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.2.6.RELEASE'
-    compile group: 'org.springframework', name: 'spring-tx', version: '5.2.6.RELEASE'
-    compile group: 'org.springframework', name: 'spring-context', version: '5.2.6.RELEASE'
-    compile group: 'org.springframework', name: 'spring-web', version: '5.2.6.RELEASE'
-    compile group: 'org.springframework', name: 'spring-aop', version: '5.2.6.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version: '5.2.6.RELEASE'
-    compile group: 'org.springframework', name: 'spring-core', version: '5.2.6.RELEASE'
-    compile group: 'org.springframework', name: 'spring-expression', version: '5.2.6.RELEASE'
-    compile group: 'org.springframework', name: 'spring-jcl', version: '5.2.6.RELEASE'
-    compile group: 'org.springframework', name: 'spring-orm', version: '5.2.6.RELEASE'
-
+    compile group: 'org.springframework', name: 'spring-webmvc', version: springVersion
+    compile group: 'org.springframework', name: 'spring-tx', version: springVersion
+    compile group: 'org.springframework', name: 'spring-context', version: springVersion
+    compile group: 'org.springframework', name: 'spring-web', version: springVersion
+    compile group: 'org.springframework', name: 'spring-aop', version: springVersion
+    compile group: 'org.springframework', name: 'spring-beans', version: springVersion
+    compile group: 'org.springframework', name: 'spring-core', version: springVersion
+    compile group: 'org.springframework', name: 'spring-expression', version: springVersion
+    compile group: 'org.springframework', name: 'spring-jcl', version: springVersion
+    compile group: 'org.springframework', name: 'spring-orm', version: springVersion
 
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
     compile group: 'javax.activation', name: 'javax.activation-api', version: '1.2.0'
@@ -38,16 +38,29 @@ dependencies {
     compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '3.0.0-M3'
 
     compile group: 'org.hibernate', name: 'hibernate-core', version: hibernateVersion
-    //compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
-    //compile group: 'antlr', name: 'antlr', version: '2.7.7'
-    compile group: 'com.mchange', name: 'c3p0', version: '0.9.5.5'
-    compile group: 'com.mchange', name: 'mchange-commons-java', version: '0.2.20'
+    compile group: 'antlr', name: 'antlr', version: '2.7.7'
+    compile group: 'com.fasterxml', name: 'classmate', version: '1.5.1'
+    compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+    compile group: 'net.bytebuddy', name: 'byte-buddy', version: '1.10.10'
+    //compile group: 'org.dom4j', name: 'dom4j', version: '2.1.3'
+    compile group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: '2.3.3'
+    compile group: 'org.hibernate.common', name: 'hibernate-commons-annotations', version: '5.1.0.Final'
+    compile group: 'org.javassist', name: 'javassist', version: '3.27.0-GA'
+    compile group: 'org.jboss', name: 'jandex', version: '2.1.3.Final'
+    compile group: 'org.jboss.logging', name: 'jboss-logging', version: '3.4.1.Final'
+    compile group: 'org.jboss.spec.javax.transaction', name: 'jboss-transaction-api_1.2_spec', version: '1.1.1.Final'
 
+    compile group: 'com.mchange', name: 'c3p0', version: '0.9.5.5'
+    compile group: 'org.hibernate', name: 'hibernate-c3p0', version: hibernateVersion
+    compile group: 'com.mchange', name: 'mchange-commons-java', version: '0.2.20'
 
     compile group: 'mysql', name: 'mysql-connector-java', version: mysqlVersion
     //compile group: 'log4j', name: 'log4j', version: '1.2.17'
 
+    compile group: 'jstl', name: 'jstl', version: '1.2'
+
     providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+
 
 }
 
