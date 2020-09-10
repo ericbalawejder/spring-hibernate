@@ -13,4 +13,8 @@ public class MembershipDAO {
         System.out.println(getClass() + ": OH SILLY");
         return "Silly";
     }
+
+    public void goToSleep() {
+        System.out.println(getClass() + ": I'M GOING TO SLEEP NOW.");
+    }
 }
