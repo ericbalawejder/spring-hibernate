@@ -8,6 +8,8 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import java.util.stream.Stream;
+
 @Aspect
 @Component
 @Order(2)
@@ -24,22 +26,16 @@ public class MyDemoLoggingAspect {
         System.out.println("Method: " + methodSignature);
 
         // display method arguments
-
-
+        
         // get arguments
         Object[] arguments = joinPoint.getArgs();
 
         // loop through arguments
-        for (Object argument : arguments) {
-            System.out.println(argument);
-
-            // downcast and print account specific stuff
-            if(argument instanceof Account) {
-                Account account = (Account) argument;
-                System.out.println("account name: " + account.getName());
-                System.out.println("account level: " + account.getLevel());
-            }
-        }
+        Stream.of(arguments)
+                .peek(System.out::println)
+                .filter(a -> a instanceof Account)
+                .map(a -> ((Account) a).getName() + "\n" + ((Account) a).getLevel())
+                .forEach(System.out::println);
     }
 }
 
