@@ -14,6 +14,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 @Aspect
@@ -21,13 +22,15 @@ import java.util.stream.Stream;
 @Order(2)
 public class MyDemoLoggingAspect {
 
+    private Logger myLogger = Logger.getLogger(getClass().getName());
+
     @Around("execution(* com.luv2code.aopdemo.service.*.getFortune(..))")
     public Object aroundGetFortune(
             ProceedingJoinPoint theProceedingJoinPoint) throws Throwable {
 
         // print out method we are advising on
         String method = theProceedingJoinPoint.getSignature().toShortString();
-        System.out.println("\n=====>>> Executing @Around on method: " + method);
+        myLogger.info("\n=====>>> Executing @Around on method: " + method);
 
         // get begin timestamp
         long begin = System.currentTimeMillis();
@@ -40,7 +43,7 @@ public class MyDemoLoggingAspect {
 
         // compute duration and display it
         long duration = end - begin;
-        System.out.println("\n=====> Duration: " + duration / 1000.0 + " seconds");
+        myLogger.info("\n=====> Duration: " + duration / 1000.0 + " seconds");
 
         return result;
     }
@@ -50,7 +53,7 @@ public class MyDemoLoggingAspect {
 
         // print out which method we are advising on
         String method = theJoinPoint.getSignature().toShortString();
-        System.out.println("\n=====>>> Executing @After (finally) on method: "
+        myLogger.info("\n=====>>> Executing @After (finally) on method: "
                 + method);
     }
 
@@ -61,10 +64,10 @@ public class MyDemoLoggingAspect {
 
         // print out which method we are advising on
         String method = theJoinPoint.getSignature().toShortString();
-        System.out.println("\n=====>>> Executing @AfterThrowing on method: " + method);
+        myLogger.info("\n=====>>> Executing @AfterThrowing on method: " + method);
 
         // log the exception
-        System.out.println("\n=====>>> The exception is: " + theExc);
+        myLogger.info("\n=====>>> The exception is: " + theExc);
     }
 
     @AfterReturning(
@@ -74,17 +77,17 @@ public class MyDemoLoggingAspect {
 
         // print out which method we are advising on
         String method = theJoinPoint.getSignature().toShortString();
-        System.out.println("\n=====>>> Executing @AfterReturning on method: " + method);
+        myLogger.info("\n=====>>> Executing @AfterReturning on method: " + method);
 
         // print out the results of the method call
-        System.out.println("\n=====>>> result is: " + result);
+        myLogger.info("\n=====>>> result is: " + result);
 
         // let's post-process the data ... let's modify it :-)
 
         // convert the account names to uppercase
         convertAccountNamesToUpperCase(result);
 
-        System.out.println("\n=====>>> result is: " + result);
+        myLogger.info("\n=====>>> result is: " + result);
     }
 
     private void convertAccountNamesToUpperCase(List<Account> result) {
@@ -93,11 +96,11 @@ public class MyDemoLoggingAspect {
 
     @Before("com.luv2code.aopdemo.aspect.AopExpressions.forDaoPackageNoGetterSetter()")
     public void beforeAddAccountAdvice(JoinPoint joinPoint) {
-        System.out.println("\n=====>>> Executing @Before advice");
+        myLogger.info("\n=====>>> Executing @Before advice");
 
         // display the method signature
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-        System.out.println("Method: " + methodSignature);
+        myLogger.info("Method: " + methodSignature);
 
         // display method arguments
 
