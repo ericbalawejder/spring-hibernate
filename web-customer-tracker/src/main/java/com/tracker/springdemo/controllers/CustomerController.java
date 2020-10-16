@@ -1,6 +1,5 @@
 package com.tracker.springdemo.controllers;
 
-import com.tracker.springdemo.dao.CustomerDAO;
 import com.tracker.springdemo.entity.Customer;
 import com.tracker.springdemo.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;

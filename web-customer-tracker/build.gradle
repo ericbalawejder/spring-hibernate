@@ -12,6 +12,7 @@ project.ext {
     hibernateVersion = '5.4.16.Final'
     mysqlVersion = '8.0.20'
     mockitoVersion = '3.3.3'
+    aspectjVersion = "1.9.6"
 }
 
 repositories {
@@ -52,6 +53,11 @@ dependencies {
     providedCompile group: 'javax.servlet', name: 'jsp-api', version: '2.0'
     // <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> for jsp pages
     compile group: 'jstl', name: 'jstl', version: '1.2'
+
+    // aspectj
+    runtime group: 'org.aspectj', name: 'aspectjweaver', version: aspectjVersion
+    compile group: 'org.aspectj', name: 'aspectjtools', version: aspectjVersion
+    compile group: 'org.aspectj', name: 'aspectjrt', version: aspectjVersion
 
     // Server logs
     //compile group: 'log4j', name: 'log4j', version: '1.2.17'
