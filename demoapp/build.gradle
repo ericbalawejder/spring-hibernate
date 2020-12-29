@@ -21,7 +21,11 @@ dependencies {
     // devtools for automatic server reloading
     compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.4.1'
 
+    // Spring Boot Actuator Support
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.4.1'
+
+    // Spring Boot Starter Security
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.4.1'
 }
 
 test {

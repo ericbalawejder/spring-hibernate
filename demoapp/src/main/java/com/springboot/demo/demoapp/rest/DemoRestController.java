@@ -14,7 +14,7 @@ public class DemoRestController {
     }
 
     @GetMapping("/workout")
-    public String getDailyWorlout() {
+    public String getDailyWorkout() {
         return "Run a hard 5K";
     }
 
