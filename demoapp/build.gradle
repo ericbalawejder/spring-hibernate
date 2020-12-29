@@ -1,8 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.4.1'
-	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
-	id 'java'
-	id 'war'
+    id 'org.springframework.boot' version '2.4.1'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+    id 'war'
 }
 
 group = 'com.springboot.demo'
@@ -10,15 +10,20 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // devtools for automatic server reloading
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.4.1'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.4.1'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
